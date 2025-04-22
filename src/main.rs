@@ -1,3 +1,4 @@
+mod exercises;
 fn main() {
-    println!("Hello, world!");
+    exercises::q_4a::run()
 }
