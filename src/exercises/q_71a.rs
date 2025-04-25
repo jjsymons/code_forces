@@ -40,24 +40,39 @@ use std::ptr::null;
 
 pub fn run(){
     println!("Question 71A: Way too long words! For the following words, 4, word, localization, internationalization,\n pneumonoultramicroscopicsilicovolcanoconiosis. Answers should be BLANK, word, l10n i18n, p43s respectively");
-    println!("{}", way_to_long_words("4".to_string()));
-    println!("{}", way_to_long_words("word".to_string()));
-    println!("{}", way_to_long_words("localization".to_string()));
-    println!("{}", way_to_long_words("internationalization".to_string()));
-    println!("{}", way_to_long_words("pneumonoultramicroscopicsilicovolcanoconiosis".to_string()));
+    println!("{}", way_to_long_words("4"));
+    println!("{}", way_to_long_words("word"));
+    println!("{}", way_to_long_words("localization"));
+    println!("{}", way_to_long_words("November"));
+    println!("{}", way_to_long_words("Utilitarianism"));
 }
 
-fn way_to_long_words(word: String) -> String {
+fn way_to_long_words(mut word: &str) -> String {
+    word = word.trim(); 
     for chars in word.chars() {
         if chars.is_numeric(){
             return "".to_string();
         }
-    } 
+    }
     if word.len() >= 10 {
         let output = format!("{}{}{}", word.chars().nth(0).unwrap() , word.len() - 2, word.chars().nth(word.len() - 1).unwrap());
         output
     } else {
-        word
+        word.to_string()
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn exercise_71a_way_to_long_words() {
+        assert_eq!(way_to_long_words("1990"), "");
+        assert_eq!(way_to_long_words("h3llo"), "");
+        assert_eq!(way_to_long_words("uncharacteristically "), "u18y"); 
+        assert_eq!(way_to_long_words("antidisestablishmentarianism"), "a26m");
+        assert_eq!(way_to_long_words("esophagogastroduodenoscopy"), "e24y");
     }
 }
 
