@@ -1,4 +1,4 @@
 mod exercises;
 fn main() {
-    exercises::q_4a::run()
+    exercises::q_71a::run()
 }

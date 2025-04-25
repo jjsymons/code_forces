@@ -35,3 +35,7 @@
 // l10n
 // i18n
 // p43s
+
+pub fn run(){
+    println!("Hello World");
+}
