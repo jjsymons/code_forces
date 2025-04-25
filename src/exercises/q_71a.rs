@@ -36,6 +36,28 @@
 // i18n
 // p43s
 
+use std::ptr::null;
+
 pub fn run(){
-    println!("Hello World");
+    println!("Question 71A: Way too long words! For the following words, 4, word, localization, internationalization,\n pneumonoultramicroscopicsilicovolcanoconiosis. Answers should be BLANK, word, l10n i18n, p43s respectively");
+    println!("{}", way_to_long_words("4".to_string()));
+    println!("{}", way_to_long_words("word".to_string()));
+    println!("{}", way_to_long_words("localization".to_string()));
+    println!("{}", way_to_long_words("internationalization".to_string()));
+    println!("{}", way_to_long_words("pneumonoultramicroscopicsilicovolcanoconiosis".to_string()));
 }
+
+fn way_to_long_words(word: String) -> String {
+    for chars in word.chars() {
+        if chars.is_numeric(){
+            return "".to_string();
+        }
+    } 
+    if word.len() >= 10 {
+        let output = format!("{}{}{}", word.chars().nth(0).unwrap() , word.len() - 2, word.chars().nth(word.len() - 1).unwrap());
+        output
+    } else {
+        word
+    }
+}
+
