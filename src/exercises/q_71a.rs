@@ -71,7 +71,7 @@ mod tests {
         assert_eq!(way_to_long_words("1990"), "");
         assert_eq!(way_to_long_words("h3llo"), "");
         assert_eq!(way_to_long_words("uncharacteristically "), "u18y"); 
-        assert_eq!(way_to_long_words("antidisestablishmentarianism"), "a26m");
+        assert_eq!(way_to_long_words(" antidisestablishmentarianism"), "a26m");
         assert_eq!(way_to_long_words("esophagogastroduodenoscopy"), "e24y");
     }
 }
